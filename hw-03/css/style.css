@@ -1,0 +1,193 @@
+html{
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body{
+    font-family: 'Playfair Display', 'Arial', serif;   
+    color: #626262;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.container{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.features-list{
+    list-style: none;
+    margin: 0;  
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+
+.feature-list-caption{
+    font-family: 'Ubuntu', sans-serif;
+    color: #b4ad9e;
+    margin: 0;
+    line-height: 17px;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 19px;
+}
+
+.feature-list-image{
+    margin-bottom: 28px;
+}
+
+.feature-list-title{
+    margin: 0;
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 29px;
+}
+
+.site-nav{
+    padding-top: 73px;
+    padding-bottom: 97px;
+    line-height: 0;
+    font-size: 0;
+}
+
+.site-navigation{
+    list-style: none;
+    display: inline-block;
+    width: 900px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0;
+    line-height: 0;
+}
+
+.site-navigation li{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.site-navigation-item1{
+    margin-right: 121px;
+}
+
+.site-navigation-item2{
+    margin-right: 103px;
+
+}
+
+.site-navigation-item3{
+    margin-right: 94px;
+
+}
+
+.site-navigation a{
+    display: block;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #626262;
+}
+
+.site-navigation a:hover,
+.site-navigation a:focus{
+    color: red;
+}
+
+.site-navigation-blue a{
+    color: #03a9f4;
+}
+
+
+
+
+
+
+
+.features-list-item{
+    display: inline-block;
+    width: 420px;
+    margin-right: 60px;
+
+}
+
+.features-list-item:nth-child(2n){
+    margin-right: 0;
+}
+
+.features-list-item:nth-child(-n+2){
+    margin-bottom: 128px;
+}
+
+.feature-list-text{
+    margin: 0;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+
+.feature-list-text:nth-last-child(-n+2){
+    margin-bottom: 0px;
+}
+
+.features-list{
+    margin-bottom: 83px;
+}
+
+.load-button{
+    font-family: 'Playfair Display', 'Arial', serif;   
+    color: #626262;
+   border: 1px solid #626262; 
+   margin: 0;
+   padding: 0;
+   width: 164px;
+   height: 60px;
+   font-size: 20px;
+    line-height: 24px;
+    cursor: pointer;
+    background-color: white;
+    margin-bottom: 21px;
+    margin-right: 21px;
+    
+    
+}
+
+.load-more{
+    text-align: center;
+    
+}
+
+
+
+
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden{
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
