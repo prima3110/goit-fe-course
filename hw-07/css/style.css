@@ -1,0 +1,330 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+@font-face {
+    font-family: 'Cookie';
+    font-weight: 400;
+    src: url('../fonts/cookie-v10-latin/cookie-v10-latin-regular.woff');
+    src: url('../fonts/cookie-v10-latin/cookie-v10-latin-regular.woff2');
+
+}
+
+/* amiri-regular - latin */
+@font-face {
+    font-family: 'Amiri';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/amiri-v12-latin/amiri-v12-latin-regular.woff2') format('woff2'),
+        url('../fonts/amiri-v12-latin/amiri-v12-latin-regular.woff') format('woff');
+}
+
+/* roboto-slab-700 - latin */
+@font-face {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/roboto-slab-v8-latin/roboto-slab-v8-latin-700.woff2') format('woff2'),
+        url('../fonts/roboto-slab-v8-latin/roboto-slab-v8-latin-700.woff') format('woff');
+}
+
+/* im-fell-english-italic - latin */
+@font-face {
+    font-family: 'IM Fell English';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/im-fell-english-v8-latin/im-fell-english-v8-latin-italic.woff2') format('woff2'),
+        url('../fonts/im-fell-english-v8-latin/im-fell-english-v8-latin-italic.woff') format('woff');
+}
+
+/* amaranth-700 - latin */
+@font-face {
+    font-family: 'Amaranth';
+    font-weight: 700;
+    src: url('../fonts/amaranth-v9-latin/amaranth-v9-latin-700.woff2') format('woff2'),
+        url('../fonts/amaranth-v9-latin/amaranth-v9-latin-700.woff') format('woff');
+}
+
+/* montserrat-700 - latin */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/montserrat-v12-latin/montserrat-v12-latin-700.woff2') format('woff2'),
+        url('../fonts/montserrat-v12-latin/montserrat-v12-latin-700.woff') format('woff');
+}
+
+.container {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.page-nav {
+    width: 940px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 66px;
+    align-items: baseline;
+}
+
+.logo {
+    text-decoration: none;
+    font-family: 'Cookie', cursive;
+    font-size: 26px;
+    line-height: 41px;
+    color: #fed136;
+    letter-spacing: 0.05em;
+}
+
+.page-nav-list {
+    margin: 0;
+    padding: 0;
+    min-width: 485px;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.page-nav-list-item-reference {
+    font-family: 'Amiri', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #222222;
+    font-size: 14px;
+    line-height: 41px;
+    letter-spacing: 0.1em;
+}
+
+.page-nav-list-item a:hover,
+:focus {
+    color: #fed136;
+}
+
+.content {
+    width: 940px;
+    margin: 0 auto;
+}
+
+.features {
+    margin-bottom: 112px;
+}
+
+.features-title {
+    text-align: center;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: uppercase;
+    margin-bottom: -10px;
+}
+
+.features-title-caption {
+    font-family: 'IM Fell English';
+    margin-bottom: 82px;
+    color: #4a4a4a;
+    letter-spacing: 0.14em;
+}
+
+
+.features-title-caption {
+    text-align: center;
+}
+
+.features-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.features-list-item-image-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.features-list-item-image-2 {
+    position: absolute;
+}
+
+.features-list-item-title {
+    text-align: center;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+
+}
+
+.features-list-item-title-text {
+    text-align: center;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #777777;
+}
+
+.page-footer {
+    width: 1400px;
+    height: 676px;
+    background-color: #222222;
+    background-image: url('../image/Map\ Image.png');
+    background-repeat: no-repeat;
+    background-position: right bottom+19px;
+}
+
+.page-footer-title {
+    padding-top: 99px;
+    text-align: center;
+    color: white;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: uppercase;
+    margin-bottom: -10px;
+}
+
+.page-footer-title-caption {
+    text-align: center;
+    font-family: 'IM Fell English';
+    color: #4a4a4a;
+    margin-bottom: 58px;
+}
+
+.page-footer-form {
+    width: 940px;
+    height: 385px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.page-footer-label {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin-right: 30px;
+    justify-content: center;
+}
+
+label input {
+    padding: 0;
+    padding-left: 18px;
+    width: 455px;
+    height: 50px;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #bbbbbb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input::placeholder {
+    color: #bbbbbb;
+}
+
+input:focus {
+    color: #bbbbbb;
+}
+
+textarea::placeholder {
+    color: #bbbbbb;
+}
+
+input:invalid,
+:focus {
+    outline-color: red;
+}
+
+input:valid {
+    outline-color: green;
+}
+
+textarea:invalid {
+    outline-color: red;
+}
+
+textarea:valid {
+    outline-color: green;
+}
+
+textarea:focus {
+    color: #bbbbbb;
+}
+
+input:nth-last-child(n+2) {
+    margin-bottom: 31px;
+}
+
+textarea {
+    margin: auto;
+    padding-left: 18px;
+    padding-top: 14px;
+    width: 455px;
+    height: 210px;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #bbbbbb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    margin: 0 auto;
+    width: 240px;
+    height: 66px;
+    background-color: #fed136;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+input[value="Send message"] {
+    font-family: 'Montserrat';
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}

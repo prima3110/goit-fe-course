@@ -131,32 +131,37 @@ body {
 
 .before-block {
     width: 90px;
-    background-repeat: no-repeat;
-    background-position: top center;
+    margin: 0 auto;
 }
 
-.before-block-1 {
-    background-image: url(../image/ALARM.png);
+.before-block-1{
+    width: 32px;
+    height: 31px;
 }
 
 .before-block-2 {
-    background-image: url(../image/LINE\ GRAPH.png);
+    width: 32px;
+    height: 32px;
 }
 
 .before-block-3 {
-    background-image: url(../image/COMPUTER\ _\ OK.png);
+    width: 32px;
+    height: 28px;
 }
 
 .before-block-4 {
-    background-image: url(../image/BOOK\ 2.png);
+    width: 32px;
+    height: 32px;
 }
 
 .before-block-5 {
-    background-image: url(../image/HOME.png);
+    width: 32px;
+    height: 31px;
 }
 
 .before-block-6 {
-    background-image: url(../image/IMAGE.png);
+    width: 32px;
+    height: 32px;
 }
 
 .features-block-title-list-item-block {
@@ -172,7 +177,7 @@ body {
     font-size: 14px;
     line-height: 17px;
     color: #333333;
-    padding-bottom: 18px;
+    margin-bottom: 18px;
 }
 
 .features-block-title-list-item-title-caption {
@@ -229,23 +234,9 @@ body {
     justify-content: space-between;
 }
 
-
-
-.team-block-list-item-image-big-box {
-    width: 380px;
-    height: 470px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
 .team-block-list-item-image-middle-box {
     width: 380px;
     height: 470px;
-    background-size: cover;
-    background-color: red;
-    background-repeat: no-repeat;
     transition: all 200ms linear;
     display: flex;
     align-items: center;
@@ -320,10 +311,6 @@ body {
     background-color: #fce38a;
     background-repeat: no-repeat;
     background-position: center center;
-}
-
-.team-block-list-item-image-small-box:hover .smallest-box {
-    display: flex;
 }
 
 .smallest-box:hover {
