@@ -1,0 +1,163 @@
+@media (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+
+    .find-partner {
+        background-image: url('../image/background\ 2.png');
+        height: 700px;
+    }
+
+
+
+    .logo {
+        position: absolute;
+        top: 46px;
+        left: 44px;
+    }
+
+    .page-nav-list {
+        order: 1;
+        position: absolute;
+        right: 41px;
+        top: 20px;
+    }
+
+    .find-partner-block {
+        top: 49.5%;
+        left: 50%;
+        transform: translate(-50%, -52%);
+    }
+
+    .title {
+        font-size: 52px;
+        line-height: 62px;
+        width: 600px;
+    }
+
+    .title-caption {
+        font-size: 24px;
+        line-height: 29px;
+        width: 400px;
+        margin-top: 30px;
+    }
+
+    .title-button {
+        display: block;
+        margin: 0 auto;
+        width: 222px;
+        height: 40px;
+        margin-top: 30px;
+    }
+
+    .find-partner {
+        margin-bottom: 67px;
+    }
+
+    .partner-section-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .partner-section-list-item {
+        width: 260px;
+    }
+
+    .partner-section-list-item1 {
+        order: 1;
+    }
+
+    .partner-section-list-item3 {
+        order: 2;
+    }
+
+    .partner-section-list-item2 {
+        order: 3;
+    }
+
+    .partner-section-list-item4 {
+        order: 4;
+    }
+
+    .partner-section-button {
+        order: 5;
+
+    }
+
+    .icon4 {
+        position: absolute;
+        top: 36%;
+        left: 59%;
+    }
+
+    .partner-section-title {
+        margin-bottom: 31px;
+    }
+
+    .partner-section-list-item:nth-child(2n+1) {
+        margin-bottom: 43px;
+    }
+
+    .partner-section-button {
+        width: 195px;
+        margin: 0 100px 40px 100px;
+    }
+
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 1440px;
+    }
+
+    .find-partner {
+        background-image: url('../image/background\ 3.png');
+    }
+
+    .logo {
+        top: 46px;
+        left: 247px;
+    }
+
+    .page-nav-list {
+        right: 247px;
+        top: 20px;
+    }
+
+    .partner-section-list-item {
+        width: 240px;
+    }
+
+    .partner-section-button {
+        margin: 0 200px 73px 200px;
+    }
+
+
+    .icon1 {
+        position: absolute;
+        top: 38%;
+        left: 61%;
+    }
+
+    .icon2 {
+        position: absolute;
+        top: 36%;
+        left: 62%;
+    }
+
+    .icon3 {
+        position: absolute;
+        top: 38%;
+        left: 61%;
+    }
+
+    .icon4 {
+        position: absolute;
+        top: 36%;
+        left: 61%;
+    }
+
+
+
+}
