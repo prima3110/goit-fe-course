@@ -1,0 +1,132 @@
+@media (min-width: 768px) {
+    /* .container {
+        width: 768px;
+    } */
+
+    .logo {
+        position: absolute;
+        top: 46px;
+        left: 44px;
+    }
+
+    .page-nav-list {
+        order: 1;
+        position: absolute;
+        right: 41px;
+        top: 20px;
+    }
+
+    .find-partner-block {
+        top: 49.5%;
+        left: 50%;
+        transform: translate(-50%, -52%);
+    }
+
+    .title {
+        font-size: 52px;
+        line-height: 62px;
+        /* width: 600px; */
+    }
+
+    .title-caption {
+        font-size: 24px;
+        line-height: 29px;
+        /* width: 400px; */
+        margin-top: 30px;
+    }
+
+    .title-button {
+        display: block;
+        margin: 0 auto;
+        /* width: 222px; */
+        height: 40px;
+        margin-top: 30px;
+    }
+
+    .find-partner {
+        margin-bottom: 67px;
+        padding: 0;
+    }
+
+    .partner-section-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .partner-section-list-item {
+        padding: 0;
+
+        /* width: 260px; */
+    }
+
+    .partner-section-list-item1 {
+        order: 1;
+    }
+
+    .partner-section-list-item3 {
+        order: 2;
+    }
+
+    .partner-section-list-item2 {
+        order: 3;
+    }
+
+    .partner-section-list-item4 {
+        order: 4;
+    }
+
+    .partner-section-button {
+        order: 5;
+
+    }
+
+    .partner-section-title {
+        margin-bottom: 31px;
+
+    }
+
+    .partner-section-list-item2 {
+        margin-left: 1px;
+    }
+
+    .partner-section-list-item:nth-child(2n+1) {
+        margin-bottom: 43px;
+    }
+
+    .partner-section-button {
+        /* width: 195px; */
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    /* .container {
+        width: 1440px;
+    } */
+
+    .logo {
+        top: 46px;
+        left: 112px;
+    }
+
+    .page-nav-list {
+        right: 112px;
+        top: 20px;
+    }
+
+    .partner-section-list-item {
+        /* width: 240px; */
+    }
+
+    .partner-section-list-item2 {
+        margin-left: 0;
+    }
+
+    .partner-section-button {
+        margin: 0 200px 73px 200px;
+    }
+
+}
