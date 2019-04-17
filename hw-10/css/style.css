@@ -53,7 +53,6 @@ body {
     background: -o-linear-gradient(bottom, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('/image/optimized/background-min.png') no-repeat center;
     background: linear-gradient(to top, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('/image/optimized/background-min.png') no-repeat center;
     background-size: cover;
-    display: block;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2),
@@ -140,7 +139,7 @@ body {
 }
 
 .title-block {
-    max-width: 820px;
+    width: 820px;
     color: white;
     margin: 0 auto;
     margin-top: 167px;
@@ -368,9 +367,9 @@ body {
     }
 }
 
-.team {
+/* .team {
     height: 915px;
-}
+} */
 
 .team__text {
     max-width: 980px;
