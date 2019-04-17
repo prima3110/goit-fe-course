@@ -49,9 +49,9 @@ body {
     padding-top: 26px;
     padding-bottom: 230px;
     background: -webkit-gradient(linear, left bottom, left top, from(rgba(252, 227, 138, 0.9)), to(rgba(243, 129, 129, 0.9))), url('/image/optimized/background-min.png') no-repeat center;
-    background: -webkit-linear-gradient(bottom, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('/image/optimized/background-min.png') no-repeat center;
-    background: -o-linear-gradient(bottom, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('/image/optimized/background-min.png') no-repeat center;
-    background: linear-gradient(to top, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('/image/optimized/background-min.png') no-repeat center;
+    background: -webkit-linear-gradient(bottom, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('../image/optimized/background-min.png') no-repeat center;
+    background: -o-linear-gradient(bottom, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('../image/optimized/background-min.png') no-repeat center;
+    background: linear-gradient(to top, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('../image/optimized/background-min.png') no-repeat center;
     background-size: cover;
 }
 
@@ -60,9 +60,9 @@ body {
 (min-resolution: 192dpi) {
     .page-header {
         background: -webkit-gradient(linear, left bottom, left top, from(rgba(252, 227, 138, 0.9)), to(rgba(243, 129, 129, 0.9))), url('/image/optimized/background@2x-min.png') no-repeat center;
-        background: -webkit-linear-gradient(bottom, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('/image/optimized/background@2x-min.png') no-repeat center;
-        background: -o-linear-gradient(bottom, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('/image/optimized/background@2x-min.png') no-repeat center;
-        background: linear-gradient(to top, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('/image/optimized/background@2x-min.png') no-repeat center;
+        background: -webkit-linear-gradient(bottom, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('../image/optimized/background@2x-min.png') no-repeat center;
+        background: -o-linear-gradient(bottom, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('../image/optimized/background@2x-min.png') no-repeat center;
+        background: linear-gradient(to top, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url('../image/optimized/background@2x-min.png') no-repeat center;
         background-size: cover;
     }
 }
