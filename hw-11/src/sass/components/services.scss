@@ -67,57 +67,57 @@
     margin-right: 26px;
 }
     &--alarm::before {
-        background-image: url('/images/features/ALARM.png');
+        background-image: url('../images/features/ALARM.png');
     }
     @media (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
         &--alarm::before {
-            background-image: url('/images/features/ALARM@2x.png');
+            background-image: url('../images/features/ALARM@2x.png');
         }
     }
     &--graph::before {
-        background-image: url('/images/features/LINE\ GRAPH.png');
+        background-image: url('../images/features/LINE\ GRAPH.png');
     }
     @media (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
         &--graph::before {
-            background-image: url('/images/features/LINE\ GRAPH@2x.png');
+            background-image: url('../images/features/LINE\ GRAPH@2x.png');
         }
     }
     &--computer::before {
-        background-image: url('/images/features/COMPUTER\ _\ OK.png');
+        background-image: url('../images/features/COMPUTER\ _\ OK.png');
     }
     @media (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
         &--computer::before {
-            background-image: url('/images/features/COMPUTER\ _\ OK@2x.png');
+            background-image: url('../images/features/COMPUTER\ _\ OK@2x.png');
         }
     }
     &--book::before {
-        background-image: url('/images/features/BOOK\ 2.png');
+        background-image: url('../images/features/BOOK\ 2.png');
     }
     @media (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
         &--book::before {
-            background-image: url('/images/features/BOOK\ 2@2x.png');
+            background-image: url('../images/features/BOOK\ 2@2x.png');
         }
     }
     &--home::before {
-        background-image: url('/images/features/HOME.png');
+        background-image: url('../images/features/HOME.png');
     }
     @media (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
         &--home::before {
-            background-image: url('/images/features/HOME@2x.png');
+            background-image: url('../images/features/HOME@2x.png');
         }
     }
     &--image::before {
-        background-image: url('/images/features/IMAGE.png');
+        background-image: url('../images/features/IMAGE.png');
     }
     @media (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
         &--image::before {
-            background-image: url('/images/features/IMAGE@2x.png');
+            background-image: url('../images/features/IMAGE@2x.png');
         }
     }
 }

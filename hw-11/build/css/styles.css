@@ -643,27 +643,27 @@ body {
 }
 
 .services-list__item-icon--alarm::before {
-  background-image: url("/images/features/ALARM.png");
+  background-image: url("../images/features/ALARM.png");
 }
 
 .services-list__item-icon--graph::before {
-  background-image: url("/images/features/LINE GRAPH.png");
+  background-image: url("../images/features/LINE GRAPH.png");
 }
 
 .services-list__item-icon--computer::before {
-  background-image: url("/images/features/COMPUTER _ OK.png");
+  background-image: url("../images/features/COMPUTER _ OK.png");
 }
 
 .services-list__item-icon--book::before {
-  background-image: url("/images/features/BOOK 2.png");
+  background-image: url("../images/features/BOOK 2.png");
 }
 
 .services-list__item-icon--home::before {
-  background-image: url("/images/features/HOME.png");
+  background-image: url("../images/features/HOME.png");
 }
 
 .services-list__item-icon--image::before {
-  background-image: url("/images/features/IMAGE.png");
+  background-image: url("../images/features/IMAGE.png");
 }
 
 .team {
@@ -719,15 +719,15 @@ body {
 /* Бекграундове зображення (норм і ретіна) */
 
 .team-list__middle-box--middle-box-1 {
-  background-image: url("/images/man1.png");
+  background-image: url("../images/man1.png");
 }
 
 .team-list__middle-box--middle-box-2 {
-  background-image: url("/images/man2.png");
+  background-image: url("../images/man2.png");
 }
 
 .team-list__middle-box--middle-box-3 {
-  background-image: url("/images/man3.png");
+  background-image: url("../images/man3.png");
 }
 
 /* Зміщення зображення при ховері (норм і ретіна) */
@@ -835,41 +835,41 @@ body {
   }
 
   .services-list__item-icon--alarm::before {
-    background-image: url("/images/features/ALARM@2x.png");
+    background-image: url("../images/features/ALARM@2x.png");
   }
 
   .services-list__item-icon--graph::before {
-    background-image: url("/images/features/LINE GRAPH@2x.png");
+    background-image: url("../images/features/LINE GRAPH@2x.png");
   }
 
   .services-list__item-icon--computer::before {
-    background-image: url("/images/features/COMPUTER _ OK@2x.png");
+    background-image: url("../images/features/COMPUTER _ OK@2x.png");
   }
 
   .services-list__item-icon--book::before {
-    background-image: url("/images/features/BOOK 2@2x.png");
+    background-image: url("../images/features/BOOK 2@2x.png");
   }
 
   .services-list__item-icon--home::before {
-    background-image: url("/images/features/HOME@2x.png");
+    background-image: url("../images/features/HOME@2x.png");
   }
 
   .services-list__item-icon--image::before {
-    background-image: url("/images/features/IMAGE@2x.png");
+    background-image: url("../images/features/IMAGE@2x.png");
   }
 
   .team-list__middle-box--middle-box-1 {
-    background-image: url("/images/man1@2x.png");
+    background-image: url("../images/man1@2x.png");
     background-size: cover;
   }
 
   .team-list__middle-box--middle-box-2 {
-    background-image: url("/images/man2@2x.png");
+    background-image: url("../images/man2@2x.png");
     background-size: cover;
   }
 
   .team-list__middle-box--middle-box-3 {
-    background-image: url("/images/man3@2x.png");
+    background-image: url("../images/man3@2x.png");
     background-size: cover;
   }
 
