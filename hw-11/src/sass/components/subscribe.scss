@@ -1,0 +1,35 @@
+.subscribe {
+    width: 380px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    outline: 1px solid $border-top-info-color;
+    margin: auto 0;
+}
+
+.subscribe__input-submit {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
+    background-color: $subscribe-input-bg-color;
+    color: $primary-white-color;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.subscribe__input-email {
+    width: 230px;
+    height: 40px;
+    padding-left: 13px;
+    color: $subscribe-input-email-color;
+}
+
+.subscribe__input-submit,
+.subscribe__input-email {
+    border: none;
+}
+
+.copyright__name {
+    color: $copyright-name-color;
+}

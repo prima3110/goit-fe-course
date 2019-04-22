@@ -1,0 +1,63 @@
+%bg-basic{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+%link {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+%list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+%mrg0-pad0-txtalgcntr{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+%titles{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+%titles-after{
+    content: '';
+    display: block;
+    clear: both;
+    margin: 0 auto;
+    margin-top: 37px;
+    background-color: $title-after-color;
+    width: 60px;
+    height: 3px;
+}
+
+%flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%service-and-team-caption{
+    margin-bottom: 10px;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 400;
+}
+
+%service-and-team-title{
+    margin-bottom: 9px;
+    color: $primary-black-color;
+    text-transform: uppercase;
+}
+

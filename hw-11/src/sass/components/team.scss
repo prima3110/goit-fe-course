@@ -1,0 +1,175 @@
+.team{
+    margin-bottom: 79px;
+}
+
+.team__text {
+    @extend %mrg0-pad0-txtalgcntr;
+    max-width: 980px;
+    margin: 0 auto;
+    margin-bottom: 88px;
+
+}
+
+.team__title{
+    @extend %mrg0-pad0-txtalgcntr;
+    color: $primary-black-color;
+    margin-bottom: 41px;
+    @extend %titles;
+    &::after {
+        @extend %titles-after;
+     }
+}
+
+ .team__caption {
+    @extend %mrg0-pad0-txtalgcntr;
+    color: $primary-black-color;
+    @extend %service-and-team-caption;
+    }
+
+.team-list {
+    @extend %list;
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-list__image-title {
+    @extend %mrg0-pad0-txtalgcntr;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    @extend %service-and-team-title;
+}
+
+.team-list__title-caption{
+    @extend %mrg0-pad0-txtalgcntr;
+}
+
+.team-list__big-box {
+    margin-bottom: 24px;
+    &:hover .team-list__middle-box {
+        transform: translate(-10px, -10px);
+        transition: all 200ms linear;
+        box-shadow: 10px 10px #95e1d3;
+    }
+    &:hover .team-list__small-box {
+        display: flex;
+    }
+}
+
+.team-list__middle-box {
+    width: 380px;
+    height: 470px;
+    transition: all 200ms linear;
+    @extend %flex-center;
+}
+
+/* Бекграундове зображення (норм і ретіна) */
+
+.team-list__middle-box--middle-box-1 {
+    background-image: url('/images/man1.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .team-list__middle-box--middle-box-1 {
+        background-image: url('/images/man1@2x.png');
+        background-size: cover;
+    }
+}
+
+.team-list__middle-box--middle-box-2 {
+    background-image: url('/images/man2.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .team-list__middle-box--middle-box-2 {
+        background-image: url('/images/man2@2x.png');
+        background-size: cover;
+    }
+}
+
+.team-list__middle-box--middle-box-3 {
+    background-image: url('/images/man3.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .team-list__middle-box--middle-box-3 {
+        background-image: url('/images/man3@2x.png');
+        background-size: cover;
+    }
+}
+
+/* Зміщення зображення при ховері (норм і ретіна) */
+
+.team-list__big-box:hover .team-list__middle-box--middle-box-1 {
+    background: linear-gradient($gradient-mans), url('/images/man1.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .team-list__big-box:hover .team-list__middle-box--middle-box-1 {
+        background: linear-gradient($gradient-mans), url('/images/man1@2x.png');
+        background-size: cover;
+    }
+}
+
+.team-list__big-box:hover .team-list__middle-box--middle-box-2 {
+    background: linear-gradient($gradient-mans), url('/images/man2.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .team-list__big-box:hover .team-list__middle-box--middle-box-2 {
+        background: linear-gradient($gradient-mans), url('/images/man2@2x.png');
+        background-size: cover;
+    }
+}
+
+.team-list__big-box:hover .team-list__middle-box--middle-box-3 {
+    background: linear-gradient($gradient-mans), url('/images/man3.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .team-list__big-box:hover .team-list__middle-box--middle-box-3 {
+        background: linear-gradient($gradient-mans), url('/images/man3@2x.png');
+        background-size: cover;
+    }
+}
+
+.team-list__small-box {
+    width: 224px;
+    height: 56px;
+    display: none;
+}
+
+.team-list__smallest-box {
+    width: 56px;
+    height: 56px;
+    background-color: $nav-focus-color;
+    &:hover {
+        background-color: $title-after-color;
+    }
+    &:hover .team-list__svg {
+        fill: $primary-white-color;
+    }
+}
+
+.team-list__svg {
+    display: block;
+    margin: 0 auto;
+    width: 26px;
+    height: 26px;
+    margin-top: 14px;
+    margin-left: 16px;
+    fill: $title-after-color;
+}
+
+.team-list__title-caption {
+    font-weight: 300;
+}
+
+.team-list__image-title {
+    margin-bottom: 2px;
+}

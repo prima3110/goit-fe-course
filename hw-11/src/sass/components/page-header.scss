@@ -1,0 +1,17 @@
+.page-header {
+    width: 100%;
+    padding-top: 26px;
+    padding-bottom: 230px;
+    @extend %bg-basic;
+    background: linear-gradient(to top, $gradient), url('/images/background.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .page-header {
+        background: linear-gradient(to top, $gradient), url('/images/background@2x.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+}

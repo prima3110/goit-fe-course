@@ -1,0 +1,42 @@
+.title-block {
+    width: 820px;
+    color: $primary-white-color;
+    margin: 0 auto;
+    margin-top: 167px;
+    text-align: center;
+}
+
+.title-block__caption {
+    @extend %mrg0-pad0-txtalgcntr;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 72px;
+    line-height: 86px;
+    font-weight: 400;
+    margin-bottom: 14px;
+}
+
+.title-block__title,
+.title-block__button {
+    @extend %mrg0-pad0-txtalgcntr;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.title-block__title {
+    font-size: 150px;
+    line-height: 140px;
+    margin-bottom: 132px;
+    letter-spacing: -0.35rem;
+}
+
+.title-block__button {
+    color: $primary-white-color;
+    background: none;
+    border: 3px solid $primary-white-color;
+    font-size: 14px;
+    line-height: 17px;
+    width: 160px;
+    height: 40px;
+    cursor: pointer;
+}

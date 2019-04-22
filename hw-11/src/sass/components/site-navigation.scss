@@ -1,0 +1,42 @@
+.site-navigation {
+    @extend %list;
+    @extend %flex-center;
+}
+
+.site-navigation__item {
+    height: 28px;
+    line-height: 28px;
+    &:hover {
+        border-bottom: 3px solid $nav-focus-color;
+    }
+    &:not(:last-child) {
+        margin-right: 55px;
+    }
+    &:hover .site-navigation__svg {
+        fill: $nav-focus-color;
+    }
+}
+
+.site-navigation__link {
+    @extend %link;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: $primary-white-color;
+    &:hover {
+        color: $nav-focus-color;
+    }
+}
+
+.site-navigation__img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.site-navigation__svg {
+    display: inline-block;
+    vertical-align: middle;
+    fill: $primary-white-color;
+    width: 18px;
+    height: 18px;
+}
+
