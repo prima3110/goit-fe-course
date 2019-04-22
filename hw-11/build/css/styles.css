@@ -493,7 +493,7 @@ body {
   width: 100%;
   padding-top: 26px;
   padding-bottom: 230px;
-  background: linear-gradient(to top, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url("/images/background.png");
+  background: linear-gradient(to top, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url("../images/background.png");
 }
 
 .page-nav {
@@ -733,15 +733,15 @@ body {
 /* Зміщення зображення при ховері (норм і ретіна) */
 
 .team-list__big-box:hover .team-list__middle-box--middle-box-1 {
-  background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("/images/man1.png");
+  background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("../images/man1.png");
 }
 
 .team-list__big-box:hover .team-list__middle-box--middle-box-2 {
-  background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("/images/man2.png");
+  background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("../images/man2.png");
 }
 
 .team-list__big-box:hover .team-list__middle-box--middle-box-3 {
-  background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("/images/man3.png");
+  background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("../images/man3.png");
 }
 
 .team-list__small-box {
@@ -828,7 +828,7 @@ body {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .page-header {
-    background: linear-gradient(to top, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url("/images/background@2x.png");
+    background: linear-gradient(to top, rgba(252, 227, 138, 0.9), rgba(243, 129, 129, 0.9)), url("../images/background@2x.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -874,17 +874,17 @@ body {
   }
 
   .team-list__big-box:hover .team-list__middle-box--middle-box-1 {
-    background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("/images/man1@2x.png");
+    background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("../images/man1@2x.png");
     background-size: cover;
   }
 
   .team-list__big-box:hover .team-list__middle-box--middle-box-2 {
-    background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("/images/man2@2x.png");
+    background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("../images/man2@2x.png");
     background-size: cover;
   }
 
   .team-list__big-box:hover .team-list__middle-box--middle-box-3 {
-    background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("/images/man3@2x.png");
+    background: linear-gradient(rgba(239, 137, 139, 0.9), rgba(240, 218, 137, 0.9)), url("../images/man3@2x.png");
     background-size: cover;
   }
 }
