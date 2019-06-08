@@ -21,40 +21,41 @@
 
 
 let value;
-const country = prompt('Выберите вашу страну:');
+const country = prompt('Выберите вашу страну:').toUpperCase();
 
 
-if (!country) {
-    console.log('Попробуйте еще раз')
-} else {
+if (country !== null && country !== 0 && country !== '') {
 
-    switch (country.toUpperCase()) {
+    switch (country) {
         case 'КИТАЙ':
             value = '100';
-            console.log(`Доставка в ${country.toUpperCase()} будет стоить ${value} кредитов`);
+            console.log(`Доставка в ${country} будет стоить ${value} кредитов`);
             break;
         case 'ЮЖНАЯ АМЕРИКА':
             value = '250';
-            console.log(`Доставка в ${country.toUpperCase()} будет стоить ${value} кредитов`);
+            console.log(`Доставка в ${country} будет стоить ${value} кредитов`);
             break;
         case 'АВСТРАЛИЯ':
             value = '170';
-            console.log(`Доставка в ${country.toUpperCase()} будет стоить ${value} кредитов`);
+            console.log(`Доставка в ${country} будет стоить ${value} кредитов`);
             break;
         case 'ИНДИЯ':
             value = '80';
-            console.log(`Доставка в ${country.toUpperCase()} будет стоить ${value} кредитов`);
+            console.log(`Доставка в ${country} будет стоить ${value} кредитов`);
             break;
         case 'ЯМАЙКА':
             value = '120';
-            console.log(`Доставка в ${country.toUpperCase()} будет стоить ${value} кредитов`);
+            console.log(`Доставка в ${country} будет стоить ${value} кредитов`);
             break;
-
 
         default:
 
             console.log('В вашей стране доставка не доступна');
 
     }
+    
+} else {
+
+    console.log('Попробуйте еще раз');
 
 }

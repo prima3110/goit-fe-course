@@ -23,17 +23,15 @@ let countDroids = prompt('Сколько дроидов вы хотите куп
 let totalPrice;
 let newBalance;
 
-if (!countDroids) {
-    console.log('Отменено пользователем!');
-} else if (!Number(countDroids > 0)) {
-    console.log('Введите число больше 0');
-} else {
+if (countDroids !== null && countDroids > 0) {
     totalPrice = countDroids * pricePerDroid;
 
-    if (totalPrice > credits) {
-        console.log('Недостаточно средств на счету!');
-    } else {
+    if (credits > totalPrice) {
         newBalance = credits - totalPrice;
         console.log(`Вы купили ${countDroids} дроидов, на счету осталось ${newBalance} кредитов.`);
+    } else {
+        console.log('Недостаточно средств на счету!');
     }
+} else {
+    console.log('Отменено пользователем!');
 }
