@@ -21,12 +21,11 @@
 
 
 let value;
-const country = prompt('Выберите вашу страну:').toUpperCase();
+const country = prompt('Выберите вашу страну:');
 
 
 if (country !== null && country !== 0 && country !== '') {
-
-    switch (country) {
+    switch (country.toUpperCase()) {
         case 'КИТАЙ':
             value = '100';
             console.log(`Доставка в ${country} будет стоить ${value} кредитов`);
