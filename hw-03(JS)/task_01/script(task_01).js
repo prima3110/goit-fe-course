@@ -35,32 +35,32 @@
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
 const isLoginValid = function(login) {
-    let resultValid;
-    if (login.length >= 4 && login.length <= 16){
-      resultValid = true;
-    }
-    else {
-      resultValid = false;      
-    }
-    return resultValid;
+  return login.length >= 4 && login.length <= 16;
+    // let resultValid;
+    // if (login.length >= 4 && login.length <= 16){
+    //   resultValid = true;
+    // }
+    // else {
+    //   resultValid = false;      
+    // }
+    // return resultValid;
 };
 
 const isLoginUnique = function(allLogins, login) {
-   let resultUnique;
-   for (let i = 0; i < allLogins.length; i += 1){
-     if (!allLogins.includes(login)){
-      resultUnique = true;
-     } else {
-      resultUnique = false;
-     }
-   }
-   return resultUnique;
+  return !allLogins.includes(login);
+  //  let resultUnique;
+  //    if (!allLogins.includes(login)){
+  //     resultUnique = true;
+  //    } else {
+  //     resultUnique = false;
+  //    }
+  //  return resultUnique;
 };
 
 const addLogin = function(allLogins, login) {
-  let resultAdd = '';
-  if (isLoginValid(login) === true){
-    if (isLoginUnique(allLogins, login) === true){
+let resultAdd = '';
+  if (isLoginValid(login)){
+    if (isLoginUnique(allLogins, login)){
       allLogins.push(login);
       resultAdd = 'Логин успешно добавлен!';
     } else {
