@@ -2,67 +2,70 @@
 
 class Notepad {
 
-   constructor (notes = []) {
+  constructor(notes = []) {
     this._notes = notes;
-   }
+  }
 
-   get notes() {
-     return this._notes;
-   }
+  get notes() {
+    return this._notes;
+  }
 
- findNoteById(id) {
+  findNoteById(id) {
     let result;
-    for(let note of this.notes){
-      if(note.id === id){
+    for (let note of this.notes) {
+      if (note.id === id) {
         result = note;
-      } 
       }
-      return result;
+    }
+    return result;
   }
 
   saveNote(note) {
     this.notes.push(note);
-   return note;
+    return note;
   }
 
   deleteNote(id) {
     let findbById = this.findNoteById(id);
-      if(findbById.id === id){
-     let positionNote = this.notes.indexOf(findbById);
-     this.notes.splice(positionNote,1);
-      }
+    if (findbById.id === id) {
+      let positionNote = this.notes.indexOf(findbById);
+      this.notes.splice(positionNote, 1);
     }
+  }
 
   updateNoteContent(id, updatedContent) {
     let newNote;
     let positionNote;
     let findbById = this.findNoteById(id);
-      if (findbById.id === id) {
-         positionNote = this.notes.indexOf(findbById);
-         findbById = {...findbById, ...updatedContent};
-          newNote = findbById;
-          this.notes[positionNote] = newNote;
-      }
-    return newNote;   
+    if (findbById.id === id) {
+      positionNote = this.notes.indexOf(findbById);
+      findbById = {
+        ...findbById,
+        ...updatedContent
+      };
+      newNote = findbById;
+      this.notes[positionNote] = newNote;
+    }
+    return newNote;
   }
 
   updateNotePriority(id, priority) {
     let findbById = this.findNoteById(id);
     let noteObj;
-      if (findbById.id === id){
-        findbById.priority = priority;
-    } 
+    if (findbById.id === id) {
+      findbById.priority = priority;
+    }
     noteObj = findbById;
-  return noteObj;
+    return noteObj;
   }
 
   filterNotesByQuery(query) {
     let word = query.toUpperCase();
     const arr = [];
-    for (let note of this.notes){
+    for (let note of this.notes) {
       let titleUp = note.title.toUpperCase();
       let bodyUp = note.body.toUpperCase();
-      if (titleUp.includes(word) || bodyUp.includes(word)){
+      if (titleUp.includes(word) || bodyUp.includes(word)) {
         arr.push(note);
       }
     }
@@ -71,8 +74,8 @@ class Notepad {
 
   filterNotesByPriority(priority) {
     const arrPriorityNumbers = [];
-    for (let priorityNumber of this.notes){
-      if (priority === priorityNumber.priority){
+    for (let priorityNumber of this.notes) {
+      if (priority === priorityNumber.priority) {
         arrPriorityNumbers.push(priorityNumber);
       }
     }
@@ -101,135 +104,134 @@ const NOTE_ACTIONS = {
   DECREASE_PRIORITY: 'decrease-priority',
 };
 
-const initialNotes = [
-  {
+const initialNotes = [{
     id: 'id-1',
     title: 'JavaScript essentials',
-    body:
-      'Get comfortable with all basic JavaScript concepts: variables, loops, arrays, branching, objects, functions, scopes, prototypes etc',
+    body: 'Get comfortable with all basic JavaScript concepts: variables, loops, arrays, branching, objects, functions, scopes, prototypes etc',
     priority: PRIORITY_TYPES.HIGH,
   },
   {
     id: 'id-2',
     title: 'Refresh HTML and CSS',
-    body:
-      'Need to refresh HTML and CSS concepts, after learning some JavaScript. Maybe get to know CSS Grid and PostCSS, they seem to be trending.',
+    body: 'Need to refresh HTML and CSS concepts, after learning some JavaScript. Maybe get to know CSS Grid and PostCSS, they seem to be trending.',
     priority: PRIORITY_TYPES.NORMAL,
   },
   {
     id: 'id-3',
     title: 'Get comfy with Frontend frameworks',
-    body:
-      'First should get some general knowledge about frameworks, then maybe try each one for a week or so. Need to choose between React, Vue and Angular, by reading articles and watching videos.',
+    body: 'First should get some general knowledge about frameworks, then maybe try each one for a week or so. Need to choose between React, Vue and Angular, by reading articles and watching videos.',
     priority: PRIORITY_TYPES.NORMAL,
   },
   {
     id: 'id-4',
     title: 'Winter clothes',
-    body:
-      "Winter is coming! Need some really warm clothes: shoes, sweater, hat, jacket, scarf etc. Maybe should get a set of sportwear as well so I'll be able to do some excercises in the park.",
+    body: "Winter is coming! Need some really warm clothes: shoes, sweater, hat, jacket, scarf etc. Maybe should get a set of sportwear as well so I'll be able to do some excercises in the park.",
     priority: PRIORITY_TYPES.LOW,
   },
 ];
 
 const notepad = new Notepad(initialNotes);
 
+//функція, яка сама буде створювати теги з класами
+const createElement = (tag, className) => {
+  const createElement = document.createElement(tag);
+  createElement.classList.add(className);
+  return createElement;
+};
 
-const createNoteContent = (title, body) => {
+//список ссилок на елементи
+const ref = {
+  ul: document.querySelector('.note-list'),
+};
 
- const noteContent = document.createElement('div');
- noteContent.classList.add('note__content');
+//функція createNoteContent
+const createNoteContent = note => {
 
- const noteTitle = document.createElement('h2');
- noteTitle.classList.add('note__title');
- noteTitle.textContent = title;
+  //note__content
+  const noteContent = createElement('div', 'note__content');
+  //note__title
+  const title = createElement('h2', 'note__title');
+  title.textContent = note.title;
+  //note__body
+  const body = createElement('p', 'note__body');
+  body.textContent = note.body;
+  //appends
+  noteContent.append(title, body);
 
- const noteBody = document.createElement('p');
- noteBody.classList.add('note__body');
- noteBody.textContent = body;
 
- noteContent.append(noteTitle, noteBody);
-
-return noteContent;
+  return noteContent;
 }
 
+//функція createActionButton
 const createActionButton = (data, icon) => {
+  //action
+  const buttonAction = createElement('button', 'action');
+  buttonAction.dataset.action = data;
 
- const buttonAction = document.createElement('button');
- buttonAction.classList.add('action');
- buttonAction.dataset.action = data;
+  //icon
+  const materialIcon = createElement('i', 'material-icons');
+  materialIcon.classList.add('action__icon');
+  materialIcon.textContent = icon;
 
- const materialIcon = document.createElement('i');
- materialIcon.classList.add('material-icons', 'action__icon');
- materialIcon.textContent = icon;
+  //appends
+  buttonAction.append(materialIcon);
 
- buttonAction.appendChild(materialIcon);
-
- return buttonAction;
+  return buttonAction;
 
 }
 
-const createSection = (firstButton, firstIcon, secondButton, secondIcon) => {
- 
- const noteSection = document.createElement('section');
- noteSection.classList.add('note__section');
- noteSection.append(createActionButton(firstButton, firstIcon), createActionButton(secondButton, secondIcon));
-
- return noteSection;
-}
-
+//функція createNoteFooter
 const createNoteFooter = (priority) => {
 
- const noteFooter = document.createElement('footer');
- noteFooter.classList.add('note__footer');
+  //note__footer
+  const noteFooter = createElement('footer', 'note__footer');
 
- const notePriority = document.createElement('span');
- notePriority.classList.add('note__priority');
- notePriority.textContent = priority;
+  //note__section
+  const noteSectionOne = createElement('section', 'note__section');
+  const noteSectionTwo = createElement('section', 'note__section');
 
- const firstSection = createSection(
-   NOTE_ACTIONS.DECREASE_PRIORITY,
-   ICON_TYPES.ARROW_DOWN,
-   NOTE_ACTIONS.INCREASE_PRIORITY,
-   ICON_TYPES.ARROW_UP
-   );
 
-   const secondSection = createSection(
-    NOTE_ACTIONS.EDIT, 
-    ICON_TYPES.EDIT, 
-    NOTE_ACTIONS.DELETE, 
-    ICON_TYPES.DELETE
-    );
+  //note__priority
+  const notePriority = createElement('span', 'note__priority');
+  notePriority.textContent = priority;
 
-   firstSection.appendChild(notePriority);
-   
-   noteFooter.append(firstSection, secondSection);
-   
-   return noteFooter;
+  //appends
+  noteSectionOne.append(createActionButton(NOTE_ACTIONS.DECREASE_PRIORITY, ICON_TYPES.ARROW_DOWN), createActionButton(NOTE_ACTIONS.INCREASE_PRIORITY, ICON_TYPES.ARROW_UP));
+  noteSectionOne.append(notePriority);
+  noteSectionTwo.append(createActionButton(NOTE_ACTIONS.EDIT, ICON_TYPES.EDIT), createActionButton(NOTE_ACTIONS.DELETE, ICON_TYPES.DELETE));
+  
+  noteFooter.append(noteSectionOne, noteSectionTwo);
+
+  return noteFooter;
+}
+
+//фукнція createListItem
+const createListItem = note => {
+
+  //note
+  const noteDiv = createElement('div', 'note');
+  //note-list__item
+  const listItem = createElement('li', 'note-list__item');
+
+  //appends
+  noteDiv.append(createNoteContent(note));
+  noteDiv.append(createNoteFooter(note.priority));
+
+  listItem.append(noteDiv);
+
+  return listItem;
+
 };
 
-const createListItem = (note) => {
- 
- const noteListItem = document.createElement('li');
- noteListItem.classList.add('note-list__item');
- noteListItem.dataset.id = note.id;
-
- const noteDiv = document.createElement('div');
- noteDiv.classList.add('note');
-
- noteDiv.append(createNoteContent(note.title, note.body), createNoteFooter(note.priority));
-
- noteListItem.appendChild(noteDiv);
-
- return noteListItem;
-};
-
+//функція, яка приймає ссилку на елемент ul.note-list і масив обєктів заміток
+//і викликає createListItem(note) стільки разів, скільки обєктів в масиві
+//після чого додає всі карточки в список
 const renderNoteList = (listRef, notes) => {
-
- const noteList = notes.map((note) => createListItem(note));
- listRef.append(...noteList);
+  //перебираємо масив заміток, викликаємо функція для створення і передаємо їй замітку (n-кількість)
+  const renderList = notes.map(elem => createListItem(elem));
+  //додаємо замітки в список (розпилюємо li в ul)
+  listRef.append(...renderList);
 };
 
-const noteListReference = document.querySelector('ul.note-list');
-
-renderNoteList(noteListReference, notepad.notes);
+//передаємо ссилку на елемент і масив заміток
+renderNoteList(ref.ul, notepad.notes);
