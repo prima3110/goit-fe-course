@@ -23,11 +23,10 @@ class Notepad {
 
   findNoteById(id) {
     let result;
-    for (let note of this.notes) {
-      if (note.id === id) {
-        result = note;
-      }
-    }
+    this.notes.find(note => {
+      note.id === id;
+      result = note;
+    })
     return result;
   }
 
@@ -71,26 +70,23 @@ class Notepad {
   }
 
   filterNotesByQuery(query) {
-    let word = query.toUpperCase();
-    const arr = [];
-    for (let note of this.notes) {
+    return this.notes.filter(note => { 
+      let word = query.toUpperCase();
       let titleUp = note.title.toUpperCase();
       let bodyUp = note.body.toUpperCase();
-      if (titleUp.includes(word) || bodyUp.includes(word)) {
-        arr.push(note);
-      }
-    }
-    return arr;
+      return titleUp.includes(word) || bodyUp.includes(word);
+    })
   }
 
   filterNotesByPriority(priority) {
-    const arrPriorityNumbers = [];
-    for (let priorityNumber of this.notes) {
-      if (priority === priorityNumber.priority) {
-        arrPriorityNumbers.push(priorityNumber);
-      }
-    }
-    return arrPriorityNumbers;
+    // const arrPriorityNumbers = [];
+    // this.notes.map(note => {
+    //     if (priority === note.priority) {
+    //       arrPriorityNumbers.push(note);
+    //     }
+    // })
+    // return arrPriorityNumbers;
+    return this.notes.filter(note => priority === note.priority);
   };
 
   addListItem(inputValue, inputText) {
