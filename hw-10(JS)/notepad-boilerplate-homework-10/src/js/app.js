@@ -6,6 +6,9 @@ import { renderNoteList, createListItem } from './utils/view';
 
 const notepad = new Notepad(initialNotes);
 
+//викликаємо функцію рендерингу і передаємо ссилку на елемент і масив заміток
+renderNoteList(ref.ul, notepad.notes);
+
   //функція, яка створює нову замітку (при введенні заголовку і тексту, сабміт форми передає в функцію createListItem через аргумент newListItem) і додає її в список)
    const addListItem = (event) => {
     event.preventDefault();
@@ -19,27 +22,31 @@ const notepad = new Notepad(initialNotes);
   
     const newListItem = notepad.addListItem(inputValue, inputText);
     const newNote = createListItem(newListItem);
-    ref.ul.appendChild(newNote);
+    ref.ul.append(newNote);
     ref.form.reset();
   }
 
-   //функція, яка передає введені в інпут символи в функцію filterNotesByQuery для подальшої фільтрації і передає відфільтровані замітки в рендер renderNoteList
-  const filterListItem = (event) => {
-    const inputedText = notepad.filterNotesByQuery(event.target.value);
-    renderNoteList(ref.ul, inputedText);
-  }
-
-   //функція, яка порівнює значення в NOTE_ACTIONS.DELETE і в датасет батька вибраного елемента, якщо вони співпадать, то видаляє лі, в якому знаходться
+  const deleteListItem = element => {
+    const deleteLi = element.closest("li");
+    const liId = deleteLi.dataset.id;
+    notepad.deleteNote(liId);
+    deleteLi.remove();
+  };
+  
+  //функція, яка порівнює значення в NOTE_ACTIONS.DELETE і в датасет батька вибраного елемента, якщо вони співпадать, то видаляє лі, в якому знаходться
   const removeListItem = (event) => {
-    const parentLi = event.target.closest('li');
     const noteId = event.target.parentNode.dataset.action;
     if(noteId === NOTE_ACTIONS.DELETE){
-      parentLi.remove();
+      deleteListItem(event.target);
     }
   }
-
-//викликаємо функцію рендерингу і передаємо ссилку на елемент і масив заміток
-renderNoteList(ref.ul, notepad.notes);
+  
+  //функція, яка передає введені в інпут символи в функцію filterNotesByQuery для подальшої фільтрації і передає відфільтровані замітки в рендер renderNoteList
+ const filterListItem = (event) => {
+   const inputedText = notepad.filterNotesByQuery(event.target.value);
+   renderNoteList(ref.ul, inputedText);
+ }
+ 
 
   ref.ul.addEventListener('click', removeListItem);
   ref.input.addEventListener('input', filterListItem);

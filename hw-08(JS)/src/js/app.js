@@ -11,13 +11,7 @@ class Notepad {
   }
 
   findNoteById(id) {
-    let result;
-    for (let note of this.notes) {
-      if (note.id === id) {
-        result = note;
-      }
-    }
-    return result;
+    return this.notes.find(elem => elem.id === id);
   }
 
   saveNote(note) {
@@ -34,19 +28,10 @@ class Notepad {
   }
 
   updateNoteContent(id, updatedContent) {
-    let newNote;
-    let positionNote;
     let findbById = this.findNoteById(id);
-    if (findbById.id === id) {
-      positionNote = this.notes.indexOf(findbById);
-      findbById = {
-        ...findbById,
-        ...updatedContent
-      };
-      newNote = findbById;
-      this.notes[positionNote] = newNote;
+    if(findbById) {
+      Object.assign(findbById, updatedContent);
     }
-    return newNote;
   }
 
   updateNotePriority(id, priority) {
@@ -135,7 +120,8 @@ const notepad = new Notepad(initialNotes);
 //функція, яка сама буде створювати теги з класами
 const createElement = (tag, className) => {
   const createElement = document.createElement(tag);
-  createElement.classList.add(className);
+  // createElement.classList.add(className);
+  className.split(' ').map(e => createElement.classList.add(e));
   return createElement;
 };
 

@@ -81,17 +81,21 @@ static Priority = {
      * Принимает: идентификатор заметки и объект, полями которого надо обновить заметку
      * Возвращает: обновленную заметку
      */
-    let newNote;
-    let positionNote;
+    // let newNote;
+    // let positionNote;
+    // let findbById = this.findNoteById(id);
+    //   if (findbById.id === id) {
+    //      positionNote = this.notes.indexOf(findbById);
+    //      findbById = {...findbById, ...updatedContent};
+    //       newNote = findbById;
+    //       this.notes[positionNote] = newNote;
+    //   }
+    //     // console.log(newNote);
+    // return newNote; 
     let findbById = this.findNoteById(id);
-      if (findbById.id === id) {
-         positionNote = this.notes.indexOf(findbById);
-         findbById = {...findbById, ...updatedContent};
-          newNote = findbById;
-          this.notes[positionNote] = newNote;
-      }
-        // console.log(newNote);
-    return newNote; 
+    if(findbById) {
+      Object.assign(findbById, updatedContent);
+    }
     
   }
 

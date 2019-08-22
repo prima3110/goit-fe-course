@@ -12,12 +12,7 @@ import { PRIORITY_TYPES } from './constants';
   }
 
   findNoteById(id) {
-    let result;
-    this.notes.find(note => {
-      note.id === id;
-      result = note;
-    })
-    return result;
+    return this.notes.find(elem => elem.id === id);
   }
 
   saveNote(note) {
@@ -26,27 +21,14 @@ import { PRIORITY_TYPES } from './constants';
   }
 
   deleteNote(id) {
-    let findbById = this.findNoteById(id);
-    if (findbById.id === id) {
-      let positionNote = this.notes.indexOf(findbById);
-      this.notes.splice(positionNote, 1);
-    }
+    this._notes = this._notes.filter(note => note.id !== id);
   }
 
   updateNoteContent(id, updatedContent) {
-    let newNote;
-    let positionNote;
     let findbById = this.findNoteById(id);
-    if (findbById.id === id) {
-      positionNote = this.notes.indexOf(findbById);
-      findbById = {
-        ...findbById,
-        ...updatedContent
-      };
-      newNote = findbById;
-      this.notes[positionNote] = newNote;
+    if(findbById) {
+      Object.assign(findbById, updatedContent);
     }
-    return newNote;
   }
 
   updateNotePriority(id, priority) {

@@ -3,7 +3,8 @@ import { ICON_TYPES, NOTE_ACTIONS } from './constants';
   //функція, яка сама буде створювати теги з класами
    const createElement = (tag, className) => {
     const createElement = document.createElement(tag);
-    createElement.classList.add(className);
+    // createElement.classList.add(className);
+    className.split(' ').map(e => createElement.classList.add(e));
     return createElement;
   };
   
