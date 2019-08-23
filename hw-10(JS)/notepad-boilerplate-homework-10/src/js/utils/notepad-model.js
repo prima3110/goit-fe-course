@@ -33,13 +33,11 @@ import { PRIORITY_TYPES } from './constants';
 
   updateNotePriority(id, priority) {
     let findbById = this.findNoteById(id);
-    let noteObj;
-    if (findbById.id === id) {
-      findbById.priority = priority;
+    if (findbById.id) {
+    findbById.priority = priority;
     }
-    noteObj = findbById;
-    return noteObj;
-  }
+    return findbById ;
+    }
 
   filterNotesByQuery(query) {
     return this.notes.filter(note => { 
