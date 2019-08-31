@@ -32,8 +32,8 @@ import storage from "./storage";
 
         if(deletedNote){
           storage.saveNotes('newNotesAdded', this.checkStorageNotes().filter(note => note.id !== id));
-          resolve(deletedNote);
         }
+        resolve(deletedNote);
         reject('Error deleting note');
       }, 500);
     });

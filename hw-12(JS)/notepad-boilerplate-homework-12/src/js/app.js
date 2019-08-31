@@ -55,9 +55,11 @@ MicroModal.close('note-editor-modal');
 const deleteListItem = element => {
   const deleteLi = element.closest("li");
   const liId = deleteLi.dataset.id;
-  notepad.deleteNote(liId).catch(console.error());
-  deleteLi.remove();
-  notyf.success(NOTIFICATION_MESSAGES.NOTE_DELETED_SUCCESS);
+  notepad.deleteNote(liId).then((deletedNote) => {
+    notyf.success(deletedNote.title);
+    deleteLi.remove();
+    notyf.success(NOTIFICATION_MESSAGES.NOTE_DELETED_SUCCESS);
+  }).catch(console.error());
 };
 
 const removeListItem = (event) => {
