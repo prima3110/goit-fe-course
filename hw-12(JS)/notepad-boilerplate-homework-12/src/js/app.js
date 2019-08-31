@@ -1,15 +1,15 @@
 import {Notyf} from 'notyf';
-// import initialNotes from '../assets/notes.json';
+import initialNotes from '../assets/notes.json';
 import { NOTE_ACTIONS, NOTIFICATION_MESSAGES } from './utils/constants';
 import Notepad from './utils/notepad-model';
 import { ref } from './utils/ref';
-import { renderNoteList, createNoteCard } from './utils/view';
+import { renderNoteList, addNoteList, renderFilteredNotes } from './utils/view';
 import MicroModal from 'micromodal';
 import 'notyf/notyf.min.css';
 import storage from './utils/storage';
 
 
-const notepad = new Notepad(storage.loadNotes('newNotesAdded'));
+const notepad = new Notepad(initialNotes);
 const notyf = new Notyf();
 
 renderNoteList(ref.ul, notepad.notes);
@@ -39,30 +39,25 @@ const addListItem = (event) => {
     return notyf.error(NOTIFICATION_MESSAGES.EDITOR_FIELDS_EMPTY);
   }
 
-notepad.addNote(inputValue, inputText).then(
+notepad.saveInput(inputValue, inputText).then(
   newNote => {
-    ref.ul.insertAdjacentHTML('beforeend', createNoteCard(newNote));
-    storage.saveNotes('newNotesAdded', notepad.notes)
-    ref.form.reset();
+    addNoteList(ref.ul, newNote);
     notyf.success(NOTIFICATION_MESSAGES.NOTE_ADDED_SUCCESS);
   }
-).catch(error => console.log(error));
-
-storage.removeNotes('inputValue');
-storage.removeNotes('inputText');
+  ).catch(console.error());
+  
+  storage.removeNotes('inputValue');
+  storage.removeNotes('inputText');
+  ref.form.reset();
 MicroModal.close('note-editor-modal');
 }
 
 const deleteListItem = element => {
   const deleteLi = element.closest("li");
   const liId = deleteLi.dataset.id;
-  notepad.deleteNote(liId).then(
-    newNotes => {
-      deleteLi.remove();
-      storage.saveNotes('newNotesAdded', newNotes);
-      notyf.success(NOTIFICATION_MESSAGES.NOTE_DELETED_SUCCESS);
-    }
-    ).catch(error => console.log(error));
+  notepad.deleteNote(liId).catch(console.error());
+  deleteLi.remove();
+  notyf.success(NOTIFICATION_MESSAGES.NOTE_DELETED_SUCCESS);
 };
 
 const removeListItem = (event) => {
@@ -75,9 +70,9 @@ const removeListItem = (event) => {
 const filterListItem = (event) => {
   notepad.filterNotesByQuery(event.target.value).then(
     filteredNotes => {
-      renderNoteList(ref.ul, filteredNotes);
+      renderFilteredNotes(ref.ul, filteredNotes);
     }
-  ).catch(error => console.log(error));
+  ).catch(console.error());
 }
 
   const openModal = () => {

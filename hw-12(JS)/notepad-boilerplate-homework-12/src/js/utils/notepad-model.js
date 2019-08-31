@@ -1,5 +1,6 @@
 import shortid from "shortid";
 import { PRIORITY_TYPES } from './constants';
+import storage from "./storage";
  
  export default class Notepad {
 
@@ -11,20 +12,28 @@ import { PRIORITY_TYPES } from './constants';
     return this._notes;
   }
 
-  findNoteById(id) {
-    return this.notes.find(elem => elem.id === id);
+  checkStorageNotes(){
+    const savedNotes = storage.loadNotes('newNotesAdded');
+        if(savedNotes) {
+          this._notes = savedNotes;
+        }
+
+        return this._notes;
   }
 
-  saveNote(note) {
-    this.notes.push(note);
-    return note;
+  findNoteById(id) {
+    return this.checkStorageNotes().find(note => note.id === id);
   }
 
   deleteNote(id) {
     return new Promise( (resolve, reject) => {
       setTimeout(() => {
-        this._notes = this._notes.filter(note => note.id !== id);
-        resolve(this._notes);
+        const deletedNote = this.findNoteById(id);
+
+        if(deletedNote){
+          storage.saveNotes('newNotesAdded', this.checkStorageNotes().filter(note => note.id !== id));
+          resolve(deletedNote);
+        }
         reject('Error deleting note');
       }, 500);
     });
@@ -48,7 +57,7 @@ import { PRIORITY_TYPES } from './constants';
   filterNotesByQuery(query) {
     return new Promise ((resolve, reject) => {
       setTimeout(() => {
-        const filteredNotes = this.notes.filter(note => { 
+        const filteredNotes = this.checkStorageNotes().filter(note => { 
           let word = query.toUpperCase();
           let titleUp = note.title.toUpperCase();
           let bodyUp = note.body.toUpperCase();
@@ -64,7 +73,7 @@ import { PRIORITY_TYPES } from './constants';
     return this.notes.filter(note => priority === note.priority);
   };
 
-  addNote(inputValue, inputText) {
+  saveInput(inputValue, inputText) {
     return new Promise ((resolve, reject) => {
       setTimeout(() => {
         const newNote = {
@@ -73,12 +82,24 @@ import { PRIORITY_TYPES } from './constants';
           body: inputText,
           priority: PRIORITY_TYPES.LOW,
         };
-        this._notes.push(newNote);
+
+        this.saveNote(newNote).catch(console.error());
       
         resolve(newNote);
         reject('Error adding note');
       }, 500);
       });
-  }
- }
+  };
 
+ saveNote(note) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      this.checkStorageNotes().push(note);
+        storage.saveNotes('newNotesAdded', this._notes);
+
+        resolve(note);
+        reject('Error saving note');
+    }, 500);
+  });
+};
+}
