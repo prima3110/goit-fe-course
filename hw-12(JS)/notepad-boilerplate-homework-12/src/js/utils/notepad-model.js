@@ -1,0 +1,84 @@
+import shortid from "shortid";
+import { PRIORITY_TYPES } from './constants';
+ 
+ export default class Notepad {
+
+  constructor(notes = []) {
+    this._notes = notes;
+  }
+
+  get notes() {
+    return this._notes;
+  }
+
+  findNoteById(id) {
+    return this.notes.find(elem => elem.id === id);
+  }
+
+  saveNote(note) {
+    this.notes.push(note);
+    return note;
+  }
+
+  deleteNote(id) {
+    return new Promise( (resolve, reject) => {
+      setTimeout(() => {
+        this._notes = this._notes.filter(note => note.id !== id);
+        resolve(this._notes);
+        reject('Error deleting note');
+      }, 500);
+    });
+  }
+
+  updateNoteContent(id, updatedContent) {
+    let findbById = this.findNoteById(id);
+    if(findbById) {
+      Object.assign(findbById, updatedContent);
+    }
+  }
+
+  updateNotePriority(id, priority) {
+    let findbById = this.findNoteById(id);
+    if (findbById.id) {
+    findbById.priority = priority;
+    }
+    return findbById ;
+    }
+
+  filterNotesByQuery(query) {
+    return new Promise ((resolve, reject) => {
+      setTimeout(() => {
+        const filteredNotes = this.notes.filter(note => { 
+          let word = query.toUpperCase();
+          let titleUp = note.title.toUpperCase();
+          let bodyUp = note.body.toUpperCase();
+           return titleUp.includes(word) || bodyUp.includes(word);
+          });
+          resolve(filteredNotes);
+          reject('Error filtering notes');
+      }, 500);
+    });
+  }
+
+  filterNotesByPriority(priority) {
+    return this.notes.filter(note => priority === note.priority);
+  };
+
+  addNote(inputValue, inputText) {
+    return new Promise ((resolve, reject) => {
+      setTimeout(() => {
+        const newNote = {
+          id: shortid.generate(),
+          title: inputValue,
+          body: inputText,
+          priority: PRIORITY_TYPES.LOW,
+        };
+        this._notes.push(newNote);
+      
+        resolve(newNote);
+        reject('Error adding note');
+      }, 500);
+      });
+  }
+ }
+
