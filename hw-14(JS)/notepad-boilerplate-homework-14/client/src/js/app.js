@@ -1,12 +1,11 @@
 import {Notyf} from 'notyf';
-import { NOTE_ACTIONS, NOTIFICATION_MESSAGES } from './utils/constants';
+import { NOTE_ACTIONS, NOTIFICATION_MESSAGES, PRIORITY_TYPES } from './utils/constants';
 import Notepad from './utils/notepad-model';
 import { ref } from './utils/ref';
 import { renderNoteList, addNoteList, renderFilteredNotes } from './utils/view';
 import MicroModal from 'micromodal';
 import 'notyf/notyf.min.css';
 import storage from './utils/storage';
-import { async } from 'q';
 
 
 const notepad = new Notepad();
@@ -22,44 +21,52 @@ const renderNotes = async () => {
 }
 
 renderNotes();
-notyf.success('Привет, хозяин! :)')
+notyf.success(NOTIFICATION_MESSAGES.NOTE_GREETING);
 
-const inputChecking = (event) => {
+const openModal = () => {
+  MicroModal.show('note-editor-modal');
+  ref.form.classList.remove('edit');
+  ref.form.classList.add('add');
+  ref.form[0].value = '';
+  ref.form[1].value = '';
+  const [input, text] = ref.form.elements;
   const inputedTitle = storage.loadNotes('inputValue');
   const inputedBody = storage.loadNotes('inputText');
   if(inputedTitle || inputedBody){
-    ref.form[0].value = inputedTitle;
-    ref.form[1].value = inputedBody;
+    input.value = inputedTitle;
+    text.value = inputedBody;
   };
-};
+}
 
 const inputSave = (event) => {
-  const [input, textarea] = event.currentTarget.elements;
-  storage.saveNotes('inputValue', input.value);
-  storage.saveNotes('inputText', textarea.value);
+  if(ref.form.classList.contains('add')){
+    const [input, textarea] = event.currentTarget.elements;
+    storage.saveNotes('inputValue', input.value);
+    storage.saveNotes('inputText', textarea.value);
+  }
   }
 
 const addListItem = async event => {
   event.preventDefault();
+  if(ref.form.classList.contains('add')){
   const [input, text] = event.target.elements;
   const inputValue = input.value;
   const inputText = text.value;
   if(inputValue.trim() === '' || inputText.trim() === ''){
-    ref.form.reset();
     return notyf.error(NOTIFICATION_MESSAGES.EDITOR_FIELDS_EMPTY);
   }
 try{
 const newNote = await notepad.saveInput(inputValue, inputText);
     addNoteList(ref.ul, newNote);
     notyf.success(NOTIFICATION_MESSAGES.NOTE_ADDED_SUCCESS);
+    storage.removeNotes('inputValue');
+    storage.removeNotes('inputText');
+    ref.form.reset();
+    MicroModal.close('note-editor-modal');
   } catch(error) {
     notyf.error(error.message);
   };
-  
-  storage.removeNotes('inputValue');
-  storage.removeNotes('inputText');
-  ref.form.reset();
-MicroModal.close('note-editor-modal');
+}
 }
 
 const deleteListItem = async element => {
@@ -75,8 +82,8 @@ const deleteListItem = async element => {
 };
 
 const removeListItem = (event) => {
-  const noteId = event.target.parentNode.dataset.action;
-  if(noteId === NOTE_ACTIONS.DELETE){
+  const noteAction = event.target.parentNode.dataset.action;
+  if(noteAction === NOTE_ACTIONS.DELETE){
     deleteListItem(event.target);
   }
 }
@@ -90,21 +97,84 @@ const filterListItem = async event => {
   }
 }
 
-// notepad.updateNotePriority("4", 0).then(updatedNote => {
-//   console.log(updatedNote);
-// })
-
-// notepad.updateNoteContent("4", {title: "Winter clothes"}).then(updatedNote => {
-//   console.log(updatedNote);
-// })
-
-  const openModal = () => {
+const openEditModal = async event => {
+  const noteAction = event.target.parentNode.dataset.action;
+  const idOfNote = event.target.closest('li').dataset.id;
+  if(noteAction === NOTE_ACTIONS.EDIT){
     MicroModal.show('note-editor-modal');
+    ref.form.classList.remove('add');
+    ref.form.classList.add('edit');
+    notepad.getId(idOfNote);
+    const [input, text] = ref.form.elements;
+    const notes = await notepad.getNotes();
+    const updatedNote = await notes.find(note => note.id === Number(idOfNote));
+    input.value = updatedNote.title;
+    text.value = updatedNote.body;
   }
+}
+      
+const updateListItem = async evt => {
+if(ref.form.classList.contains('edit')){
+  try{
+  evt.preventDefault();
+  const idOfNote = notepad.throwId();
+  const [input, text] = ref.form.elements;
+  const inputValue = input.value;
+  const inputText = text.value;
+  if(inputValue.trim() === '' || inputText.trim() === ''){
+    return notyf.error(NOTIFICATION_MESSAGES.EDITOR_FIELDS_EMPTY);
+  }
+  const updatedNoteData = {
+    title: inputValue,
+    body: inputText
+  };
+  await notepad.updateNoteContent(idOfNote, updatedNoteData);
+    renderNotes();
+    notyf.success(NOTIFICATION_MESSAGES.NOTE_UPDATED_SUCCESS);
+    storage.removeNotes('inputValue');
+  storage.removeNotes('inputText');
+  ref.form.reset();
+  MicroModal.close('note-editor-modal');
+  } catch (error){
+    console.log(error);
+  }
+  }
+} 
 
-  ref.ul.addEventListener('click', removeListItem);
-  ref.input.addEventListener('input', filterListItem);
+const changePriority = async event => {
+  try{
+  const noteAction = event.target.parentNode.dataset.action;
+  const idOfNote = event.target.closest('li').dataset.id;
+  if(noteAction === NOTE_ACTIONS.INCREASE_PRIORITY){
+    notepad.getId(idOfNote);
+    const notes = await notepad.getNotes();
+    let changedPriorityNote = await notes.find(note => note.id === Number(idOfNote));
+    changedPriorityNote.priority += 1;
+    if(changedPriorityNote.priority > PRIORITY_TYPES.HIGH) return;
+    await notepad.updateNotePriority(idOfNote, changedPriorityNote.priority);
+    notyf.success(NOTIFICATION_MESSAGES.PRIORITY_INCREASED_SUCCESS);
+    renderNotes();
+  }
+  if(noteAction === NOTE_ACTIONS.DECREASE_PRIORITY){
+    notepad.getId(idOfNote);
+    const notes = await notepad.getNotes();
+    let changedPriorityNote = await notes.find(note => note.id === Number(idOfNote));
+    changedPriorityNote.priority -= 1;
+    if(changedPriorityNote.priority < PRIORITY_TYPES.LOW) return;
+    await notepad.updateNotePriority(idOfNote, changedPriorityNote.priority);
+    notyf.success(NOTIFICATION_MESSAGES.PRIORITY_DECREASED_SUCCESS);
+    renderNotes();
+  }
+} catch (error) {
+  console.log(error);
+}
+}
+    
+  ref.form.addEventListener('submit', updateListItem);
   ref.form.addEventListener('submit', addListItem);
-  ref.modal.addEventListener('click', openModal);
   ref.form.addEventListener('input', inputSave); 
-  ref.modal.addEventListener('click', inputChecking);
+  ref.ul.addEventListener('click', removeListItem);
+  ref.ul.addEventListener('click', openEditModal);
+  ref.ul.addEventListener('click', changePriority);
+  ref.modal.addEventListener('click', openModal);
+  ref.input.addEventListener('input', filterListItem);

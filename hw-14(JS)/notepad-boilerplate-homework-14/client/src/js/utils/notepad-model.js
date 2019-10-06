@@ -5,10 +5,19 @@ import * as api from "../services/api";
 
   constructor(notes = []) {
     this._notes = notes;
+    this.id;
   }
 
   get notes() {
       return this._notes;
+  }
+
+  getId(id) {
+    this.id = id;
+  }
+
+  throwId() {
+    return this.id;
   }
 
   async getNotes() {
